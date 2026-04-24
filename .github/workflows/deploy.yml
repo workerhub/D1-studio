@@ -25,8 +25,8 @@ jobs:
 
       - name: Replace placeholders in wrangler.toml
         run: |
-          sed -i "s|\${APP_DB_ID}|${{ vars.APP_DB_ID }}|g" apps/worker/wrangler.toml
-          sed -i "s|\${APP_DB_NAME}|${{ vars.APP_DB_NAME }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${APP_DB_ID}|${{ vars.D1_DATABASE_ID }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${APP_DB_NAME}|${{ vars.D1_DATABASE_NAME }}|g" apps/worker/wrangler.toml
           sed -i "s|\${DB_SLOT_1_ID}|${{ vars.DB_SLOT_1_ID }}|g" apps/worker/wrangler.toml
           sed -i "s|\${DB_SLOT_1_NAME}|${{ vars.DB_SLOT_1_NAME }}|g" apps/worker/wrangler.toml
           sed -i "s|\${DB_SLOT_2_ID}|${{ vars.DB_SLOT_2_ID }}|g" apps/worker/wrangler.toml
