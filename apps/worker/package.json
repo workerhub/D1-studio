@@ -1,0 +1,22 @@
+{
+  "name": "@d1studio/worker",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "cf-typegen": "wrangler types"
+  },
+  "dependencies": {
+    "hono": "^4.7.0",
+    "jose": "^5.10.0",
+    "otplib": "^12.0.1",
+    "bcryptjs": "^3.0.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250409.0",
+    "@types/bcryptjs": "^2.4.6",
+    "typescript": "^5.8.2",
+    "wrangler": "^4.10.0"
+  }
+}

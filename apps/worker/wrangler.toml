@@ -1,13 +1,13 @@
 name = "d1studio"
-main = "src/server/index.ts"
+main = "src/index.ts"
 compatibility_date = "2025-01-01"
 compatibility_flags = ["nodejs_compat"]
 
 [build]
-command = "npm run build"
+command = "cd ../web && npm run build"
 
 [site]
-bucket = "./dist"
+bucket = "../web/dist"
 
 [[d1_databases]]
 binding = "APP_DB"
