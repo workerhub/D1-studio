@@ -25,30 +25,31 @@ jobs:
 
       - name: Replace placeholders in wrangler.toml
         run: |
-          sed -i "s|\${APP_DB_ID}|${{ vars.APP_DB_ID }}|g" wrangler.toml
-          sed -i "s|\${APP_DB_NAME}|${{ vars.APP_DB_NAME }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_1_ID}|${{ vars.DB_SLOT_1_ID }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_1_NAME}|${{ vars.DB_SLOT_1_NAME }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_2_ID}|${{ vars.DB_SLOT_2_ID }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_2_NAME}|${{ vars.DB_SLOT_2_NAME }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_3_ID}|${{ vars.DB_SLOT_3_ID }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_3_NAME}|${{ vars.DB_SLOT_3_NAME }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_4_ID}|${{ vars.DB_SLOT_4_ID }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_4_NAME}|${{ vars.DB_SLOT_4_NAME }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_5_ID}|${{ vars.DB_SLOT_5_ID }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_5_NAME}|${{ vars.DB_SLOT_5_NAME }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_6_ID}|${{ vars.DB_SLOT_6_ID }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_6_NAME}|${{ vars.DB_SLOT_6_NAME }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_7_ID}|${{ vars.DB_SLOT_7_ID }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_7_NAME}|${{ vars.DB_SLOT_7_NAME }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_8_ID}|${{ vars.DB_SLOT_8_ID }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_8_NAME}|${{ vars.DB_SLOT_8_NAME }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_9_ID}|${{ vars.DB_SLOT_9_ID }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_9_NAME}|${{ vars.DB_SLOT_9_NAME }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_10_ID}|${{ vars.DB_SLOT_10_ID }}|g" wrangler.toml
-          sed -i "s|\${DB_SLOT_10_NAME}|${{ vars.DB_SLOT_10_NAME }}|g" wrangler.toml
+          sed -i "s|\${APP_DB_ID}|${{ vars.APP_DB_ID }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${APP_DB_NAME}|${{ vars.APP_DB_NAME }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_1_ID}|${{ vars.DB_SLOT_1_ID }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_1_NAME}|${{ vars.DB_SLOT_1_NAME }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_2_ID}|${{ vars.DB_SLOT_2_ID }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_2_NAME}|${{ vars.DB_SLOT_2_NAME }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_3_ID}|${{ vars.DB_SLOT_3_ID }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_3_NAME}|${{ vars.DB_SLOT_3_NAME }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_4_ID}|${{ vars.DB_SLOT_4_ID }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_4_NAME}|${{ vars.DB_SLOT_4_NAME }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_5_ID}|${{ vars.DB_SLOT_5_ID }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_5_NAME}|${{ vars.DB_SLOT_5_NAME }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_6_ID}|${{ vars.DB_SLOT_6_ID }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_6_NAME}|${{ vars.DB_SLOT_6_NAME }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_7_ID}|${{ vars.DB_SLOT_7_ID }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_7_NAME}|${{ vars.DB_SLOT_7_NAME }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_8_ID}|${{ vars.DB_SLOT_8_ID }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_8_NAME}|${{ vars.DB_SLOT_8_NAME }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_9_ID}|${{ vars.DB_SLOT_9_ID }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_9_NAME}|${{ vars.DB_SLOT_9_NAME }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_10_ID}|${{ vars.DB_SLOT_10_ID }}|g" apps/worker/wrangler.toml
+          sed -i "s|\${DB_SLOT_10_NAME}|${{ vars.DB_SLOT_10_NAME }}|g" apps/worker/wrangler.toml
 
       - name: Deploy to Cloudflare Workers
+        working-directory: apps/worker
         run: npx wrangler deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
