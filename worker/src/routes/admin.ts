@@ -254,7 +254,14 @@ admin.patch('/databases/:id', async (c) => {
 admin.delete('/databases/:id', async (c) => {
   const T = tables(c.env)
   const dbId = c.req.param('id')
+
+  const exists = await c.env.DB.prepare(
+    `SELECT id FROM ${T.d1_databases} WHERE id = ?1`
+  ).bind(dbId).first<{ id: string }>()
+  if (!exists) return c.json({ error: 'Database not found' }, 404)
+
   await c.env.DB.batch([
+    c.env.DB.prepare(`UPDATE ${T.notebooks} SET database_id = NULL WHERE database_id = ?1`).bind(dbId),
     c.env.DB.prepare(`DELETE FROM ${T.user_database_permissions} WHERE database_id = ?1`).bind(dbId),
     c.env.DB.prepare(`DELETE FROM ${T.query_history} WHERE database_id = ?1`).bind(dbId),
     c.env.DB.prepare(`DELETE FROM ${T.d1_databases} WHERE id = ?1`).bind(dbId),

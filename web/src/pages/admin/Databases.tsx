@@ -65,8 +65,13 @@ export default function AdminDatabases() {
 
   async function deleteDb(id: string, name: string) {
     if (!confirm(t('admin_db.confirm_delete').replace('{name}', name))) return
-    await adminApi.deleteDatabase(id)
-    load()
+    try {
+      await adminApi.deleteDatabase(id)
+      if (selectedDb?.id === id) setSelectedDb(null)
+      load()
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Failed to delete database')
+    }
   }
 
   async function loadPermissions(db: DbRecord) {

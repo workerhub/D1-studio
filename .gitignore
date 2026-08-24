@@ -9,3 +9,4 @@ dist/
 docs/
 .superpowers/
 .worktrees/
+tsconfig.tsbuildinfo
