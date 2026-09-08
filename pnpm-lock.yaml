@@ -86,7 +86,7 @@ importers:
         version: 13.3.3
       hono:
         specifier: ^4.7.0
-        version: 4.13.5
+        version: 4.13.7
       otpauth:
         specifier: ^9.3.6
         version: 9.5.1
@@ -1198,8 +1198,8 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  hono@4.13.5:
-    resolution: {integrity: sha512-O6+/eCYRkzzzy0rPWwKLiGBR1nFuUPZynnwjxN1MBA62NNqbT0wQEzQyK2gSO5yDIDB336sXQleAhOHrzlYyKw==}
+  hono@4.13.7:
+    resolution: {integrity: sha512-c8/gF9ac8Y78/agExVocyLevgR+JlpNB444Py0FSX8pJoPdYUfUzRcXtYEYGwt6l19qIlVZPN5Mfsw9jFShmQQ==}
     engines: {node: '>=16.9.0'}
 
   is-fullwidth-code-point@3.0.0:
@@ -2609,7 +2609,7 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  hono@4.13.5: {}
+  hono@4.13.7: {}
 
   is-fullwidth-code-point@3.0.0: {}
 
